@@ -1,0 +1,47 @@
+<%= form_with(model: tree, class: "contents") do |form| %>
+  <% if tree.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(tree.errors.count, "error") %> prohibited this tree from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% tree.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:name].none?, "border-red-400 focus:outline-red-600": tree.errors[:name].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :youtube %>
+    <%= form.text_field :youtube, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:youtube].none?, "border-red-400 focus:outline-red-600": tree.errors[:youtube].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :instagram %>
+    <%= form.text_field :instagram, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:instagram].none?, "border-red-400 focus:outline-red-600": tree.errors[:instagram].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :facebook %>
+    <%= form.text_field :facebook, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:facebook].none?, "border-red-400 focus:outline-red-600": tree.errors[:facebook].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :x %>
+    <%= form.text_field :x, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:x].none?, "border-red-400 focus:outline-red-600": tree.errors[:x].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :devto %>
+    <%= form.text_field :devto, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": tree.errors[:devto].none?, "border-red-400 focus:outline-red-600": tree.errors[:devto].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
